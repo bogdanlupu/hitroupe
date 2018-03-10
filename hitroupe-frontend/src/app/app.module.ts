@@ -15,8 +15,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { GroupFormComponent } from './components/group-form/group-form.component';
 import {DataService} from './services/data/data.service';
 import {HttpClientModule} from '@angular/common/http';
-import { NguiMapModule } from '@ngui/map';
-
+import { AgmCoreModule } from '@agm/core';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -36,9 +36,14 @@ import { NguiMapModule } from '@ngui/map';
     MatButtonModule,
     FormsModule,
     HttpClientModule,
-    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBnMMHShEh8Vs2LgKovbiisUREiEisfpVo'})
+    AgmCoreModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBnMMHShEh8Vs2LgKovbiisUREiEisfpVo'
+    }),
+    MatSliderModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }
