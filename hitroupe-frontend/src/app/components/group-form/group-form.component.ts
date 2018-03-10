@@ -9,7 +9,7 @@ import {MatSliderModule} from '@angular/material/slider';
   styleUrls: ['./group-form.component.css']
 })
 export class GroupFormComponent implements OnInit {
-  group = new Group(null, null, new Date(), null, null, null);
+  group = new Group(null, null, new Date(), null, null, null, 0);
   initial_lat = 0;
   initial_lon = 0;
   radius = 0;
