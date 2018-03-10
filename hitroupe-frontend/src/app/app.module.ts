@@ -2,12 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-<<<<<<< HEAD
 import { CommonModule } from '@angular/common';
 import {MatButtonModule, MatCardModule, MatCheckboxModule, MatInputModule} from '@angular/material';
-=======
-import { MatInputModule, MatCardModule, MatButtonModule} from '@angular/material';
->>>>>>> a5c4d11f428779aeb0b36324480973db8904ed81
 
 
 import { AppComponent } from './app.component';
@@ -35,13 +31,10 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
-<<<<<<< HEAD
-    MatCheckboxModule
-=======
+    MatCheckboxModule,
     MatButtonModule,
     FormsModule,
     HttpClientModule
->>>>>>> a5c4d11f428779aeb0b36324480973db8904ed81
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
