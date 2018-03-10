@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
-import {MatButtonModule, MatCardModule, MatInputModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatCheckboxModule, MatInputModule} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -25,7 +25,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
