@@ -8,15 +8,24 @@ import {Group} from '../../models/Group';
   styleUrls: ['./group-form.component.css']
 })
 export class GroupFormComponent implements OnInit {
-  group = new Group(null, null, new Date(), null);
+  group = new Group(null, null, new Date(), null, null, null);
   constructor(private dataService: DataService) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  setCoordinates(latitude, longitude) {
+    this.group.latitude = latitude;
+    this.group.longitude = longitude;
   }
 
   onSubmit(groupForm) {
     console.log(groupForm);
-    // this.dataService.postData('url', groupForm);
+    console.log(this.group);
+    const _this = this;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log(position);
+      _this.setCoordinates(position.coords.latitude, position.coords.longitude);
+    });
   }
 
 }
