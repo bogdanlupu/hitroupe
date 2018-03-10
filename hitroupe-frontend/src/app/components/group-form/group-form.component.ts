@@ -15,6 +15,7 @@ export class GroupFormComponent implements OnInit {
   radius = 0;
   max = 10000;
   min = 0;
+  postUrl = 'http://localhost:3000/group';
 
   constructor(private dataService: DataService) {
   }
@@ -36,11 +37,7 @@ export class GroupFormComponent implements OnInit {
   }
 
   onSubmit(groupForm) {
-    const _this = this;
-    navigator.geolocation.getCurrentPosition(function (position) {
-      console.log(position);
-      _this.setCoordinates(position.coords.latitude, position.coords.longitude);
-    });
+    this.dataService.postData(this.postUrl, this.group).toPromise().then(response => response);
   }
 
   placeMarker($event) {

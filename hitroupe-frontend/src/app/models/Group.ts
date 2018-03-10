@@ -6,6 +6,6 @@ export class Group {
     public numberOfPeople: number,
     public latitude: number,
     public longitude: number,
-    public radius: number
+    public radius: number,
   ) {}
 }

@@ -17,11 +17,7 @@ export class DataService {
   }
 
   postData(url, jsonObject) {
-    // console.log(url, jsonObject);
     let headers = new HttpHeaders();
-    if (sessionStorage.getItem('authorization') !== '') {
-      headers.append('authorization', sessionStorage.getItem('authorization'));
-    }
     headers = headers.append('Content-Type', 'application/json');
     return this.http.post(url, jsonObject, {headers: headers}).catch((error: any) => Observable.throw(error || 'Server error'));
   }
