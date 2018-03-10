@@ -1,6 +1,6 @@
 <h1 class="text-center">Create a group</h1>
 <form id="groupForm" #groupForm="ngForm">
-  <div class="fucking-center">
+  <div class="centered-form">
     <mat-form-field>
       <input [(ngModel)]="group.title" name="title" matInput placeholder="Title">
     </mat-form-field>
@@ -16,6 +16,11 @@
     <mat-form-field>
       <input [(ngModel)]="group.numberOfPeople" name="numberOfPeople" type="number" min="1" matInput placeholder="Number of people">
     </mat-form-field>
+
+    <ngui-map zoom="9" minZoom="2">
+      <marker (click)="showInfoWindow($event)" [position]=[group.latitude,group.longitude]></marker>
+    </ngui-map>
+    <br>
     <button class="pull-right" mat-raised-button (click)="onSubmit(groupForm.value)" color="primary">Submit</button>
   </div>
 </form>

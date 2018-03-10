@@ -11,7 +11,13 @@ export class GroupFormComponent implements OnInit {
   group = new Group(null, null, new Date(), null, null, null);
   constructor(private dataService: DataService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const _this = this;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      console.log(position);
+      _this.setCoordinates(position.coords.latitude, position.coords.longitude);
+    });
+  }
 
   setCoordinates(latitude, longitude) {
     this.group.latitude = latitude;
@@ -26,6 +32,7 @@ export class GroupFormComponent implements OnInit {
       console.log(position);
       _this.setCoordinates(position.coords.latitude, position.coords.longitude);
     });
+    // this.
   }
 
 }

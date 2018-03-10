@@ -15,6 +15,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { GroupFormComponent } from './components/group-form/group-form.component';
 import {DataService} from './services/data/data.service';
 import {HttpClientModule} from '@angular/common/http';
+import { NguiMapModule } from '@ngui/map';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {HttpClientModule} from '@angular/common/http';
     MatCheckboxModule,
     MatButtonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBnMMHShEh8Vs2LgKovbiisUREiEisfpVo'})
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
