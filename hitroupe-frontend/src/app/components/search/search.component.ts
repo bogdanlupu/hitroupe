@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatCheckboxModule } from '@angular/material';
 
 @Component({
   selector: 'app-search',
@@ -9,7 +9,10 @@ import { MatInputModule } from '@angular/material';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  tags = ['football', 'volley', 'art', 'museum', 'doto', 'lol', 'drugs', 'girls'];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

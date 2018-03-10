@@ -2,7 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { MatInputModule, MatCardModule, MatButtonModule} from '@angular/material';
+import { CommonModule } from '@angular/common';
+import {MatButtonModule, MatCardModule, MatCheckboxModule, MatInputModule} from '@angular/material';
 
 
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import {HttpClientModule} from '@angular/common/http';
     BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
+    MatCheckboxModule,
     MatButtonModule,
     FormsModule,
     HttpClientModule

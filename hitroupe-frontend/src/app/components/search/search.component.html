@@ -1,5 +1,9 @@
 <div class="col-lg-4 col-md-offset-4">
   <mat-form-field>
-  <textarea matInput placeholder="Search group" matTextareaAutosize></textarea>
+    <textarea matInput placeholder="Search group" matTextareaAutosize></textarea>
   </mat-form-field>
+  <ul *ngFor="let tag of tags">
+    <mat-checkbox>{{tag}}</mat-checkbox>
+  </ul>
+
 </div>
