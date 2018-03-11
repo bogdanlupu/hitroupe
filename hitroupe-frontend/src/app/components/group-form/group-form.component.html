@@ -10,16 +10,27 @@
     </mat-form-field>
 
     <mat-form-field>
-      <input [(ngModel)]="group.dateAndTime" name="dateAndTime" type="datetime-local" matInput placeholder="Date and time">
+      <input [(ngModel)]="group.dateAndTime" name="dateAndTime" type="datetime-local" matInput
+             placeholder="Date and time">
     </mat-form-field>
 
     <mat-form-field>
       <input [(ngModel)]="group.targetNumberOfPeople" name="numberOfPeople" type="number" min="1" matInput placeholder="Number of people">
     </mat-form-field>
 
-    <ngui-map zoom="9" minZoom="2">
-      <marker (click)="showInfoWindow($event)" [position]=[group.latitude,group.longitude]></marker>
-    </ngui-map>
+
+    <mat-slider
+      name="group.radius"
+      [max]="max"
+      [min]="min"
+      [(ngModel)]="group.radius">
+    </mat-slider>
+
+    <agm-map [latitude]="initial_lat" [longitude]="initial_lon" [zoom]="15" (mapClick)="placeMarker($event)">
+      <agm-marker [latitude]="group.latitude" [longitude]="group.longitude"></agm-marker>
+      <agm-circle [radius]="group.radius" [latitude]="group.latitude" [longitude]="group.longitude"></agm-circle>
+    </agm-map>
+
     <br>
     <button class="pull-right" mat-raised-button (click)="onSubmit(groupForm.value)" color="primary">Submit</button>
   </div>

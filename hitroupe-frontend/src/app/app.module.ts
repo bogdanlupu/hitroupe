@@ -17,7 +17,8 @@ import {DataService} from './services/data/data.service';
 import {HttpClientModule} from '@angular/common/http';
 import {NguiMapModule} from '@ngui/map';
 import {GroupListComponent} from './components/group-list/group-list.component';
-
+import { AgmCoreModule } from '@agm/core';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,11 @@ import {GroupListComponent} from './components/group-list/group-list.component';
     MatDialogModule,
     FormsModule,
     HttpClientModule,
-    NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBnMMHShEh8Vs2LgKovbiisUREiEisfpVo'})
+    AgmCoreModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBnMMHShEh8Vs2LgKovbiisUREiEisfpVo'
+    }),
+    MatSliderModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DataService} from '../../services/data/data.service';
 import {Group} from '../../models/Group';
+import {MatSliderModule} from '@angular/material/slider';
 
 @Component({
   selector: 'app-group-form',
@@ -8,14 +9,23 @@ import {Group} from '../../models/Group';
   styleUrls: ['./group-form.component.css']
 })
 export class GroupFormComponent implements OnInit {
-  group = new Group(null, null, new Date(),  null, 0, null, null, 'Mike');
+  group = new Group(null, null, new Date(),  null, 0, null, null, 'Mike', 0);
   constructor(private dataService: DataService) { }
+  initial_lat = 0;
+  initial_lon = 0;
+  radius = 0;
+  max = 10000;
+  min = 0;
+  postUrl = 'http://localhost:3000/group';
 
   ngOnInit() {
     const _this = this;
-    navigator.geolocation.getCurrentPosition(function(position) {
+    navigator.geolocation.getCurrentPosition(function (position) {
       console.log(position);
-      _this.setCoordinates(position.coords.latitude, position.coords.longitude);
+      _this.initial_lat = position.coords.latitude;
+      _this.initial_lon = position.coords.longitude;
+      _this.group.latitude = _this.initial_lat;
+      _this.group.longitude = _this.initial_lon;
     });
   }
 
@@ -25,14 +35,10 @@ export class GroupFormComponent implements OnInit {
   }
 
   onSubmit(groupForm) {
-    console.log(groupForm);
-    console.log(this.group);
-    const _this = this;
-    navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(position);
-      _this.setCoordinates(position.coords.latitude, position.coords.longitude);
-    });
-    // this.
+    this.dataService.postData(this.postUrl, this.group).toPromise().then(response => response);
   }
 
+  placeMarker($event) {
+    this.setCoordinates($event.coords.lat, $event.coords.lng);
+  }
 }
