@@ -2,9 +2,10 @@
   <div class="container">
     <div class="header">
       <ul class="nav pull-right">
-        <li><a href="#">Login</a></li>
+        <li *ngIf="this.username===null"><a (click)="openDialog()">Login</a></li>
+        <li *ngIf="this.username!==null"><span style="color: white;">Hello, {{this.username}}!</span></li>
       </ul>
-      <h3 class="text-muted">HiTroupe</h3>
+      <h3 class="text-muted"><a routerLink="" style="color: white">HiTroupe</a></h3>
     </div>
   </div>
 </mat-card>

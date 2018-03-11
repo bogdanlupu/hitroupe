@@ -1,0 +1,10 @@
+<div>
+  <h2 style="margin-bottom: 0" mat-dialog-title>Quick Login</h2>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input [(ngModel)]="username" name="username" matInput placeholder="Username">
+    </mat-form-field>
+    <button mat-button class="mat-primary" (click)="login()">Login</button>
+    <button mat-button mat-dialog-close class="mat-accent">Dismiss</button>
+  </div>
+</div>

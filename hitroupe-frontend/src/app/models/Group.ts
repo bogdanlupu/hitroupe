@@ -6,6 +6,7 @@ export class Group {
     public targetNumberOfPeople: number,
     public currentNumberOfPeople: number,
     public latitude: number,
-    public longitude: number
+    public longitude: number,
+    public groupOwner: string
   ) {}
 }

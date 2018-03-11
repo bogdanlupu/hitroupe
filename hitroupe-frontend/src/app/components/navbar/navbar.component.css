@@ -8,12 +8,17 @@ mat-card {
 }
 
 a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li > a {
   color: rgb(240,240,240);
   margin-top: -13%;
   transition: 0.4s;
 }
 
-a:hover {
+li > a:hover {
   color: rgb(153,50,204);
 }
 

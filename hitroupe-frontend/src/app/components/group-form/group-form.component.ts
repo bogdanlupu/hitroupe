@@ -8,7 +8,7 @@ import {Group} from '../../models/Group';
   styleUrls: ['./group-form.component.css']
 })
 export class GroupFormComponent implements OnInit {
-  group = new Group(null, null, new Date(),  null, 0, null, null);
+  group = new Group(null, null, new Date(),  null, 0, null, null, 'Mike');
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
