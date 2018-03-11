@@ -23,8 +23,9 @@ export class SearchComponent implements OnInit {
     document.getElementById('search').addEventListener('keypress', function (e) {
       const key = e.which || e.keyCode;
       if (key === 13) { // 13 is enter
-        _this.dataService.fetchData('http://localhost:3000/group?title=' + document.getElementById('search').innerText).subscribe(data => {
-          _this.share.groups = data;
+        console.log(document.getElementById('search').innerText);
+        _this.dataService.fetchData('http://localhost:3000/group?title=' + document.getElementById('search').value).subscribe(data => {
+          _this.share.groups = data.Items;
           _this.router.navigate(['groups']);
         });
       }

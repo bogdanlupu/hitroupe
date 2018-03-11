@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from '../../services/data/data.service';
 import {Group} from '../../models/Group';
 import {MatSliderModule} from '@angular/material/slider';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-group-form',
@@ -10,7 +11,8 @@ import {MatSliderModule} from '@angular/material/slider';
 })
 export class GroupFormComponent implements OnInit {
   group = new Group(null, null, new Date(),  null, 0, null, null, 'Mike', 0);
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,
+              private router: Router) { }
   initial_lat = 0;
   initial_lon = 0;
   radius = 0;
@@ -35,7 +37,7 @@ export class GroupFormComponent implements OnInit {
   }
 
   onSubmit(groupForm) {
-    this.dataService.postData(this.postUrl, this.group).toPromise().then(response => response);
+    this.dataService.postData(this.postUrl, this.group).subscribe(response => {this.router.navigate(['../'])});
   }
 
   placeMarker($event) {

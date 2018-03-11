@@ -20,11 +20,13 @@ export class GroupListComponent implements OnInit {
   //   ];
   constructor(private share: ShareService,
               private dataService: DataService,
-              private router: Router) { }
-
-  ngOnInit() {
+              private router: Router) {
     this.groups = this.share.groups;
     console.log(this.groups);
+  }
+
+  ngOnInit() {
+
   }
 
 }
