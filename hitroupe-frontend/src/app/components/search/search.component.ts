@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatFormFieldModule } from '@angular/material';
-import { MatInputModule, MatCheckboxModule } from '@angular/material';
+import {ShareService} from '../../services/some/share.service';
+import {DataService} from '../../services/data/data.service';
+import {toPromise} from 'rxjs/operator/toPromise';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -11,10 +13,23 @@ export class SearchComponent implements OnInit {
 
   tags = ['football', 'volley', 'art', 'museum', 'doto', 'lol', 'drugs', 'girls'];
 
-  constructor() {
+  constructor(private share: ShareService,
+              private dataService: DataService,
+              private router: Router) {
   }
 
   ngOnInit() {
+    const _this = this;
+    document.getElementById('search').addEventListener('keypress', function (e) {
+      const key = e.which || e.keyCode;
+      if (key === 13) { // 13 is enter
+        _this.dataService.fetchData('http://localhost:3000/group?title=' + document.getElementById('search').innerText).subscribe(data => {
+          _this.share.groups = data;
+          _this.router.navigate(['groups']);
+        });
+      }
+    });
   }
+
 
 }

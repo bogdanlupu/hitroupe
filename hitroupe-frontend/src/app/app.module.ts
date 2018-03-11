@@ -19,6 +19,7 @@ import {NguiMapModule} from '@ngui/map';
 import {GroupListComponent} from './components/group-list/group-list.component';
 import { AgmCoreModule } from '@agm/core';
 import {MatSliderModule} from '@angular/material/slider';
+import {ShareService} from './services/some/share.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import {MatSliderModule} from '@angular/material/slider';
     }),
     MatSliderModule
   ],
-  providers: [DataService],
+  providers: [DataService, ShareService],
   bootstrap: [AppComponent],
   entryComponents: [DialogOverviewExampleDialogComponent]
 })
