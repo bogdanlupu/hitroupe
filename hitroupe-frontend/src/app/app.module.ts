@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { CommonModule } from '@angular/common';
 import {MatButtonModule, MatCardModule, MatCheckboxModule, MatInputModule} from '@angular/material';
+import {MatListModule} from '@angular/material/list';
 
 
 import { AppComponent } from './app.component';
@@ -16,6 +16,7 @@ import { GroupFormComponent } from './components/group-form/group-form.component
 import {DataService} from './services/data/data.service';
 import {HttpClientModule} from '@angular/common/http';
 import { NguiMapModule } from '@ngui/map';
+import { GroupListComponent } from './components/group-list/group-list.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { NguiMapModule } from '@ngui/map';
     NavbarComponent,
     SearchComponent,
     GroupFormComponent,
+    GroupListComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { NguiMapModule } from '@ngui/map';
     MatCardModule,
     MatCheckboxModule,
     MatButtonModule,
+    MatListModule,
     FormsModule,
     HttpClientModule,
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBnMMHShEh8Vs2LgKovbiisUREiEisfpVo'})

@@ -3,7 +3,8 @@ export class Group {
     public title: string,
     public description: string,
     public dateAndTime: Date,
-    public numberOfPeople: number,
+    public targetNumberOfPeople: number,
+    public currentNumberOfPeople: number,
     public latitude: number,
     public longitude: number
   ) {}

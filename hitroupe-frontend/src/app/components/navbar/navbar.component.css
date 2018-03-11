@@ -3,13 +3,22 @@
 }
 mat-card {
   padding: 15px;
+  background-color: rgb(153,50,204);
+  border-radius: 0;
 }
 
 a {
-  color: rgb(153,50,204);
+  color: rgb(240,240,240);
   margin-top: -13%;
+  transition: 0.4s;
+}
+
+a:hover {
+  color: rgb(153,50,204);
 }
 
 h3 {
+  margin-top: 10px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: white;
 }

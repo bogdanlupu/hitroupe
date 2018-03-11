@@ -2,10 +2,12 @@ import {RouterModule, Routes} from '@angular/router';
 import {SearchComponent} from '../components/search/search.component';
 import {NgModule} from '@angular/core';
 import {GroupFormComponent} from '../components/group-form/group-form.component';
+import {GroupListComponent} from '../components/group-list/group-list.component';
 
 const routes: Routes = [
   {path: '', component: SearchComponent},
-  {path: 'group', component: GroupFormComponent}
+  {path: 'group', component: GroupFormComponent},
+  {path: 'groups', component: GroupListComponent}
 ];
 
 

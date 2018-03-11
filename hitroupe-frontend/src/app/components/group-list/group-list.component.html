@@ -1,0 +1,10 @@
+<h1 class="text-center">Groups</h1>
+<div class="centered-form">
+  <mat-list>
+      <mat-card *ngFor="let group of groups">
+        <mat-card-title>{{group.title}}</mat-card-title>
+        <mat-card-content>Current people: {{group.currentNumberOfPeople}}/{{group.targetNumberOfPeople}}</mat-card-content>
+      </mat-card>
+      <!--<mat-divider></mat-divider>-->
+  </mat-list>
+</div>
